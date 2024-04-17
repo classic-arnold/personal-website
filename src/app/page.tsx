@@ -2,7 +2,7 @@ import ButtonLink from "@/components/button-link";
 import Header from "@/components/header";
 import SkillDisplay from "@/components/skill-display";
 import { electrolize, fira_sans } from "@/utils/fonts/fonts";
-import { PROJECTS_URL } from "@/utils/links";
+import { CONTACT_URL, PROJECTS_URL } from "@/utils/links";
 import { cn } from "@/utils/utils";
 import Image from "next/image";
 
@@ -29,7 +29,7 @@ export default function Home() {
             View Projects
           </ButtonLink>
           <ButtonLink 
-          url={PROJECTS_URL}
+          url={CONTACT_URL}
           className={cn([electrolize.className, "text-tertiary text-sm"])}>
             Contact Me
           </ButtonLink>
