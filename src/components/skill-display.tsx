@@ -12,7 +12,7 @@ import flask from "/public/icons/skills/Flask.svg"
 
 export default function SkillDisplay() {
     return (
-        <div className="flex gap-x-4">
+        <div className="flex gap-x-4 overflow-hidden">
             <Image 
             src={python}
             alt="python icon"
