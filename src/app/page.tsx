@@ -43,8 +43,8 @@ export default function Home() {
         height={928}
         />
       </div>
-      <div>
-        <p>
+      <div className="absolute bottom-0 py-4 mx-16">
+        <p className="text-xs">
           Designed and built by me with ❤️️
         </p>
       </div>
