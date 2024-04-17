@@ -14,8 +14,8 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <div className="bg-primary w-full min-h-64 px-8 pt-36">
-        <h1 className="uppercase text-4xl text-white px-16">Arnold</h1>
-        <h3 className={cn([fira_sans.variable, "text-lg text-white px-16"])}>Software Engineer</h3>
+        <h1 className="uppercase text-4xl text-white px-16">Arnold Umakhihe</h1>
+        <h3 className={cn([fira_sans.variable, "text-lg italic text-white px-16"])}>Software Engineer</h3>
       </div>
     </main>
   );

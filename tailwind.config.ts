@@ -17,8 +17,9 @@ const config: Config = {
         "primary": "#004D40"
       },
       fontFamily: {
-        sans: ['var(--font-gill)', 'var(--font-fira)'],
-        mono: ['var(--font-electrolize)'],
+        gill: ['var(--font-gill)'],
+        electrolize: ['var(--font-electrolize)'],
+        fira: ['var(--font-fira)']
       },
     },
   },
