@@ -15,12 +15,7 @@ const config: Config = {
       },
       colors: {
         "primary": "#004D40"
-      },
-      fontFamily: {
-        gill: ['var(--font-gill)'],
-        electrolize: ['var(--font-electrolize)'],
-        fira: ['var(--font-fira)']
-      },
+      }
     },
   },
   plugins: [],

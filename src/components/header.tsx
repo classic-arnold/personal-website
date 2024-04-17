@@ -11,7 +11,7 @@ export default function Header() {
                 {navItems.map((navItem, i) => (
                     <li key={i} 
                     className={
-                        cn([electrolize.variable, "text-lg text-white"])}>
+                        cn([electrolize.className, "text-lg text-white"])}>
                         { navItem.title }
                     </li>
                 ))}

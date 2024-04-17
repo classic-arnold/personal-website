@@ -14,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={gillSans.variable}>{children}</body>
+      <body className={gillSans.className}>{children}</body>
     </html>
   );
 }

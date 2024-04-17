@@ -13,7 +13,7 @@ export default function Home() {
       <Header />
       <div className="bg-primary w-full min-h-64 px-16 py-8 pt-36">
         <h1 className="uppercase text-4xl text-white">Arnold Umakhihe</h1>
-        <h3 className={cn([fira_sans.variable, "text-xl font-extralight italic text-white mb-8"])}>Software Engineer</h3>
+        <h3 className={cn([fira_sans.className, "text-xl font-extralight italic text-white mb-8"])}>Software Engineer</h3>
         <SkillDisplay />
       </div>
       <div className="px-16 py-16 max-w-md">
@@ -23,7 +23,7 @@ export default function Home() {
         </p>
         <ButtonLink 
         url={PROJECTS_URL}
-        className={electrolize.variable}>
+        className={electrolize.className}>
           View Projects
         </ButtonLink>
       </div>
