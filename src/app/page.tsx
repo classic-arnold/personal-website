@@ -5,7 +5,8 @@ import { electrolize, fira_sans } from "@/utils/fonts/fonts";
 import { PROJECTS_URL } from "@/utils/links";
 import { cn } from "@/utils/utils";
 import Image from "next/image";
-import Link from "next/link";
+
+import me from "/public/images/me.png"
 
 export default function Home() {
   return (
@@ -21,11 +22,26 @@ export default function Home() {
           Hey there! I’m Arnold, dialing in from San Francisco with a love for code, 
           AI, and making cool stuff happen with software and technology.
         </p>
-        <ButtonLink 
-        url={PROJECTS_URL}
-        className={electrolize.className}>
-          View Projects
-        </ButtonLink>
+        <div className="flex flex-col gap-y-4">
+          <ButtonLink 
+          url={PROJECTS_URL}
+          className={cn([electrolize.className, "text-tertiary"])}>
+            View Projects
+          </ButtonLink>
+          <ButtonLink 
+          url={PROJECTS_URL}
+          className={cn([electrolize.className, "text-tertiary text-sm"])}>
+            Contact Me
+          </ButtonLink>
+        </div>
+      </div>
+      <div className="absolute bottom-0 right-0 w-2/3">
+        <Image 
+        src={me}
+        alt="me!!!"
+        width={1063}
+        height={928}
+        />
       </div>
     </main>
   );
