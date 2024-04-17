@@ -1,13 +1,8 @@
+import { electrolize } from "@/utils/fonts/fonts";
 import { navItems } from "@/utils/nav-items";
 import { cn } from "@/utils/utils";
-import { Electrolize } from "next/font/google";
 import Image from "next/image";
 
-const electrolize = Electrolize({ 
-    subsets: ["latin"], 
-    weight: "400",
-    variable: "--font-electrolize"
-});
 
 export default function Header() {
     return (

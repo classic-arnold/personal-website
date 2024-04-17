@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
-import localFont from 'next/font/local'
 import "./globals.css";
-
-const gillSans = localFont({
-  src: '../fonts/gillSans.otf',
-  variable: '--font-gill',
-})
+import { gillSans } from "@/utils/fonts/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",

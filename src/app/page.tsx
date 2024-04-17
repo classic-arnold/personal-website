@@ -1,17 +1,11 @@
-import Button from "@/components/button";
+import ButtonLink from "@/components/button-link";
 import Header from "@/components/header";
 import SkillDisplay from "@/components/skill-display";
+import { electrolize, fira_sans } from "@/utils/fonts/fonts";
 import { PROJECTS_URL } from "@/utils/links";
 import { cn } from "@/utils/utils";
-import { Fira_Sans } from "next/font/google"
 import Image from "next/image";
 import Link from "next/link";
-
-const fira_sans = Fira_Sans({
-  subsets: ['latin'],
-  weight: "400",
-  variable: '--font-fira',
-})
 
 export default function Home() {
   return (
@@ -23,12 +17,15 @@ export default function Home() {
         <SkillDisplay />
       </div>
       <div className="px-16 py-16 max-w-md">
-        <p>
+        <p className="mb-6">
           Hey there! I’m Arnold, dialing in from San Francisco with a love for code, 
           AI, and making cool stuff happen with software and technology.
         </p>
-        <Button url={PROJECTS_URL} 
-        className=""/>
+        <ButtonLink 
+        url={PROJECTS_URL}
+        className={electrolize.variable}>
+          View Projects
+        </ButtonLink>
       </div>
     </main>
   );
