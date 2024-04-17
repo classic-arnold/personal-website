@@ -1,14 +1,15 @@
+import { CONTACT_URL, PROJECTS_URL, SKILLS_URL } from "./links";
 
 
 export const navItems = [
     {
         title: "Skills",
-        path: "/skills"
+        path: SKILLS_URL
     },{
         title: "Projects",
-        path: "/projects"
+        path: PROJECTS_URL
     },{
         title: "Contact",
-        path: "/contact"
+        path: CONTACT_URL
     },
 ]
