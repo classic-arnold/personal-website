@@ -43,6 +43,11 @@ export default function Home() {
         height={928}
         />
       </div>
+      <div>
+        <p>
+          Designed and built by me with ❤️️
+        </p>
+      </div>
     </main>
   );
 }
