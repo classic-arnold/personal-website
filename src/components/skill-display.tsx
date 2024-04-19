@@ -9,12 +9,14 @@ import css from "/public/icons/skills/CSS.svg"
 import react from "/public/icons/skills/React.svg"
 import django from "/public/icons/skills/Django.svg"
 import flask from "/public/icons/skills/Flask.svg"
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 
 
 export default function SkillDisplay() {
     const displayContainerRef = useRef<HTMLDivElement>(null);
+
+    const [run, setRun] = useState<number>(1)
 
     const skillsImages = [
         {
@@ -50,17 +52,33 @@ export default function SkillDisplay() {
     useEffect(()=>{
         const icons = displayContainerRef.current?.children
         if (icons) {
-            for (let i = 0; i < icons?.length; i++) {
+            for (let i = 0; i < icons.length; i++) {
                 const icon = icons[i]
                 setTimeout(()=>{
                     icon.classList.add('animate-slide')
-                    setTimeout(()=>{
-                        icon.remove()
-                    }, 1000 * (i + 1))
+                    if (i === icons.length - 1) {
+                        setTimeout(()=>{
+                            const tmp = icons[0].cloneNode(true) as Element
+                            tmp.classList.remove('animate-slide')
+
+                            icons[0].remove()
+
+                            for (let j = 0; j < icons.length; j++) {
+                                icons[j].classList.remove('animate-slide')
+                            }
+                            
+                            displayContainerRef.current?.appendChild(tmp)
+                            tmp.classList.add('animate-appear')
+
+                            setTimeout(()=>{
+                                setRun(run + 1)
+                            }, 1000)
+                        }, 1000)
+                    }
                 }, 100 * i)
             }
         }
-    }, [])
+    }, [run])
 
     return (
         <div ref={displayContainerRef} className="flex gap-x-4 overflow-hidden">

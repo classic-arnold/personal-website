@@ -35,6 +35,20 @@ p, a, li {
   transform: translate(-4em);
 }
 
+.animate-appear {
+  animation: scale 1s ease-in-out;
+}
+
+@keyframes scale {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
