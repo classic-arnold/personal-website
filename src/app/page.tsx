@@ -27,12 +27,13 @@ export default function Home() {
         <div className="flex flex-col gap-y-4">
           <ButtonLink 
           url={PROJECTS_URL}
-          className={cn([electrolize.className, "text-tertiary"])}>
+          className={cn([electrolize.className])}>
             View Projects
           </ButtonLink>
           <ButtonLink 
           url={CONTACT_URL}
-          className={cn([electrolize.className, "text-tertiary text-sm"])}>
+          className={cn([electrolize.className])}
+          secondary>
             Contact Me
           </ButtonLink>
         </div>
