@@ -1,3 +1,5 @@
+"use client"
+
 import { electrolize, fira_sans } from "@/utils/fonts/fonts";
 import { navItems } from "@/utils/nav-items";
 import { cn } from "@/utils/utils";
@@ -5,17 +7,22 @@ import Image from "next/image";
 import Link from "next/link";
 
 import menu from "/public/icons/menu.svg"
+import { useEffect, useState } from "react";
+import MobileMenu from "./mobile-menu";
 
 
 export default function Header2() {
 
+    const [showMenu, setShowMenu] = useState(false)
+
     function handleMenuButtonClick () {
-        
+        setShowMenu(!showMenu)
     }
 
     return (
+        <>
         <div className="bg-primary absolute top-0 left-0 w-full 
-        flex items-center justify-between p-4 md:p-8">
+        flex items-center justify-between p-4 md:p-8 h-[100px]">
             <div>
                 <h4 className="uppercase text-lg md:text-4xl text-white">Arnold Umakhihe</h4>
                 <h6 className={cn([fira_sans.className, 
@@ -31,17 +38,10 @@ export default function Header2() {
                 width={30}              
                 />
             </button>
-            {/* <ul className="flex gap-x-4 md:gap-x-8 justify-end">
-                {navItems.map((navItem, i) => (
-                    <li key={i} 
-                    className={
-                        cn([electrolize.className, " text-white"])}>
-                            <Link href={navItem.path} className="hover:text-accent">
-                                { navItem.title }
-                            </Link>
-                    </li>
-                ))}
-            </ul> */}
         </div>
+        <div className="mt-[100px]">
+            <MobileMenu show={showMenu} setShow={setShowMenu} />
+        </div>
+        </>
     );
 }

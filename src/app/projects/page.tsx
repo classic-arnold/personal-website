@@ -5,6 +5,10 @@ export default function Projects() {
     return (
         <main>
             <Header2 />
+            <div>
+            
+            </div>
+
         </main>
     )
 }
