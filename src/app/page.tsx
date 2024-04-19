@@ -12,8 +12,8 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
-      <div className="bg-primary w-full min-h-64 py-8 pt-36">
-        <div className="px-4 md:px-16">
+      <div className="bg-primary w-full min-h-64 py-8 pt-36 px-4 md:px-16">
+        <div>
           <h1 className="uppercase text-4xl text-white">Arnold Umakhihe</h1>
           <h3 className={cn([fira_sans.className, "text-xl font-extralight italic text-white mb-8"])}>Software Engineer</h3>
         </div>
