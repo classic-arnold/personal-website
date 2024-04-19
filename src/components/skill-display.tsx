@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 
 import python from "/public/icons/skills/Python.svg"
@@ -7,54 +9,70 @@ import css from "/public/icons/skills/CSS.svg"
 import react from "/public/icons/skills/React.svg"
 import django from "/public/icons/skills/Django.svg"
 import flask from "/public/icons/skills/Flask.svg"
+import { useEffect, useRef } from "react"
 
 
 
 export default function SkillDisplay() {
+    const displayContainerRef = useRef<HTMLDivElement>(null);
+
+    const skillsImages = [
+        {
+            image: python,
+            alt: "python icon"
+        },
+        {
+            image: javascript,
+            alt: "javascript icon"
+        },
+        {
+            image: html,
+            alt: "html icon"
+        },
+        {
+            image: css,
+            alt: "css icon"
+        },
+        {
+            image: react,
+            alt: "react icon"
+        },
+        {
+            image: django,
+            alt: "django icon"
+        },
+        {
+            image: flask,
+            alt: "flask icon"
+        },
+    ]
+
+    useEffect(()=>{
+        const icons = displayContainerRef.current?.children
+        if (icons) {
+            for (let i = 0; i < icons?.length; i++) {
+                const icon = icons[i]
+                setTimeout(()=>{
+                    icon.classList.add('animate-slide')
+                    setTimeout(()=>{
+                        icon.remove()
+                    }, 1000 * (i + 1))
+                }, 100 * i)
+            }
+        }
+    }, [])
+
     return (
-        <div className="flex gap-x-4 overflow-hidden">
-            <Image 
-            src={python}
-            alt="python icon"
-            width={50}
-            height={50}
-            />
-            <Image 
-            src={javascript}
-            alt="javascript icon"
-            width={50}
-            height={50}
-            />
-            <Image 
-            src={html}
-            alt="html icon"
-            width={50}
-            height={50}
-            />
-            <Image 
-            src={css}
-            alt="css icon"
-            width={50}
-            height={50}
-            />
-            <Image 
-            src={react}
-            alt="react icon"
-            width={50}
-            height={50}
-            />
-            <Image 
-            src={django}
-            alt="django icon"
-            width={50}
-            height={50}
-            />
-            <Image 
-            src={flask}
-            alt="flask icon"
-            width={50}
-            height={50}
-            />
+        <div ref={displayContainerRef} className="flex gap-x-4 overflow-hidden">
+            {skillsImages.map((skillImage, i) => (
+                <Image 
+                src={skillImage.image}
+                alt={skillImage.alt}
+                width={50}
+                height={50}
+                key={i}
+                />
+            ))}
         </div>
     )
 }

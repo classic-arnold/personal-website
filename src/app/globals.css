@@ -30,6 +30,11 @@ p, a, li {
   @apply text-xl;
 }
 
+.animate-slide {
+  transition: transform 1s ease-in-out;
+  transform: translate(-4em);
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
