@@ -1,3 +1,4 @@
+import { cn } from "@/utils/utils";
 import Link from "next/link";
 
 
@@ -6,9 +7,14 @@ interface ButtonLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> 
 }
 
 export default function ButtonLink (props: ButtonLinkProps) {
-    const { url, children, ...otherProps } = props;
+    const { url, children, className, ...otherProps } = props;
 
     return (
-        <Link href={url} {...otherProps}>{children}</Link>
+        <div>
+            <Link 
+            href={url} 
+            className={cn([className ? className : "", "inline"])} 
+            {...otherProps}>{children}</Link>
+        </div>
     )
 }
