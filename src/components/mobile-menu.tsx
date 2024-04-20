@@ -22,31 +22,25 @@ export default function MobileMenu({show, setShow}: MobileMenuProps) {
         if (firstRender.current) {
             menu?.classList.add("hidden")
             firstRender.current = false
-        }
-        
-        if (show) {
-            menu?.classList.remove("hidden")
-            menu?.classList.remove("animate-menu-close")
-            if (!menu?.classList.contains("animate-menu")) {
-                menu?.classList.add("animate-menu")
-            }
         } else {
-            menu?.classList.remove("animate-menu")
-            menu?.classList.add("animate-menu-close")
+            if (show) {
+                menu?.classList.remove("hidden")
+                menu?.classList.remove("animate-menu-close")
+                menu?.classList.add("animate-menu")
+            } else {
+                menu?.classList.remove("animate-menu")
 
-            const tmp = menu?.cloneNode()
-            menu?.remove()
-            tmp?.parentNode?.appendChild(tmp)
-
-            setTimeout(()=>{
-                menu?.classList.add("hidden")
-            }, 500)
+                menu?.classList.add("animate-menu-close")
+                setTimeout(()=>{
+                    menu?.classList.add("hidden")
+                }, 1000)
+            }
         }
     }, [show])
 
     return (
         <ul ref={menuRef} className={cn([
-            `p-4 bg-primary animate-menu flex flex-col gap-y-8`
+            `p-4 pb-8 bg-primary animate-menu flex flex-col gap-y-8`
         ])}>
                 {navItems.map((navItem, i) => (
                     <li key={i} 

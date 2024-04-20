@@ -40,11 +40,11 @@ p, a, li {
 }
 
 .animate-menu-close {
-  animation: slide_menu_close 0.5s ease-in-out;
+  animation: slide_menu_close 1s ease-in-out;
 }
 
 .animate-menu {
-  animation: slide_menu 0.5s ease-in-out;
+  animation: slide_menu 1s ease-in-out;
 }
 
 @keyframes scale {
@@ -62,38 +62,44 @@ p, a, li {
     opacity: 0;
     max-height: 0;
     padding: 0;
+    padding-bottom: 0;
   }
 
   70% {
     opacity: 0.5;
-    max-height: 300px;
+    max-height: 250px;
     padding: 1rem;
+    padding-bottom: 2rem;
   }
 
   100% {
     opacity: 1;
-    max-height: 736px;
+    max-height: 500px;
     padding: 1rem;
+    padding-bottom: 2rem;
   }
 }
 
 @keyframes slide_menu_close {
   0% {
     opacity: 1;
-    max-height: 736px;
+    max-height: 500px;
     padding: 1rem;
+    padding-bottom: 2rem;
   }
 
-  70% {
-    opacity: 0.5;
-    max-height: 300px;
-    padding: 0;
+  30% {
+    opacity: 1;
+    max-height: 250px;
+    padding: 1rem;
+    padding-bottom: 2rem;
   }
 
   100% {
     opacity: 0;
     max-height: 0;
     padding: 0;
+    padding-bottom: 0;
   }
 }
 
