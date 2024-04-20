@@ -5,20 +5,52 @@ import { navItems } from "@/utils/nav-items";
 import { cn } from "@/utils/utils";
 import Image from "next/image";
 import Link from "next/link";
-
-import menu from "/public/icons/menu.svg"
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MobileMenu from "./mobile-menu";
 import { HOME } from "@/utils/links";
+
+import menu from "/public/icons/menu.svg"
+import close from "/public/icons/close.svg"
 
 
 export default function Header2() {
 
     const [showMenu, setShowMenu] = useState(false)
 
+    const firstRender = useRef(true);
+    const menuIconRef = useRef<HTMLImageElement>(null)
+    const menuIconCloseRef = useRef<HTMLImageElement>(null)
+
     function handleMenuButtonClick () {
         setShowMenu(!showMenu)
     }
+
+    useEffect(()=>{
+        if (firstRender.current) {
+            firstRender.current = false
+        } else {
+            if (showMenu) {
+                menuIconRef.current?.classList.add("hidden")
+                menuIconRef.current?.classList.remove("animate-menu-icon")
+                menuIconCloseRef.current?.classList.add("animate-menu-close-icon")
+                menuIconCloseRef.current?.parentElement?.setAttribute("disabled", "true")
+                menuIconCloseRef.current?.classList.remove("hidden")
+                setTimeout(()=>{
+                    menuIconRef.current?.parentElement?.removeAttribute("disabled")
+                }, 1000)
+            } else {
+                menuIconCloseRef.current?.classList.add("hidden")
+                menuIconCloseRef.current?.setAttribute("disabled", "true")
+                menuIconCloseRef.current?.classList.remove("animate-menu-close-icon")
+                menuIconRef.current?.classList.add("animate-menu-icon")
+                menuIconRef.current?.parentElement?.setAttribute("disabled", "true")
+                menuIconRef.current?.classList.remove("hidden")
+                setTimeout(()=>{
+                    menuIconCloseRef.current?.parentElement?.removeAttribute("disabled")
+                }, 1000)
+            }
+        }
+    }, [showMenu])
 
     return (
         <>
@@ -32,11 +64,20 @@ export default function Header2() {
             <button
             onClick={handleMenuButtonClick}
             >
-                <Image 
+                <Image
+                ref={menuIconCloseRef} 
+                src={close} 
+                alt={"menu close icon"}  
+                height={30}
+                width={30}
+                className="hidden"       
+                />
+                <Image
+                ref={menuIconRef} 
                 src={menu} 
                 alt={"menu icon"}  
                 height={30}
-                width={30}              
+                width={30}
                 />
             </button>
         </div>
