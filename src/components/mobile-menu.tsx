@@ -18,16 +18,19 @@ export default function MobileMenu({show, setShow}: MobileMenuProps) {
 
     useEffect(()=>{
         const menu = menuRef.current
+        
         if (firstRender.current) {
             menu?.classList.add("hidden")
             firstRender.current = false;
         }
+        
         if (show) {
             menu?.classList.remove("hidden")
         } else {
+            menu?.classList.add("animate-menu-close")
             setTimeout(()=>{
                 menu?.classList.add("hidden")
-            }, 1000)
+            }, 500)
         }
     }, [show])
 

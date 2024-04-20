@@ -39,8 +39,12 @@ p, a, li {
   animation: scale 1s ease-in-out;
 }
 
+.animate-menu-close {
+  animation: slide_menu_close 0.5s ease-in-out;
+}
+
 .animate-menu {
-  animation: slide_menu 1s ease-in-out;
+  animation: slide_menu 0.5s ease-in-out;
 }
 
 @keyframes scale {
@@ -70,6 +74,26 @@ p, a, li {
     opacity: 1;
     max-height: 736px;
     padding: 1rem;
+  }
+}
+
+@keyframes slide_menu_close {
+  0% {
+    opacity: 1;
+    max-height: 736px;
+    padding: 1rem;
+  }
+
+  70% {
+    opacity: 0.5;
+    max-height: 300px;
+    padding: 0;
+  }
+
+  100% {
+    opacity: 0;
+    max-height: 0;
+    padding: 0;
   }
 }
 
