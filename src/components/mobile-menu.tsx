@@ -49,7 +49,7 @@ export default function MobileMenu({show, setShow}: MobileMenuProps) {
     return (
         <ul ref={menuRef} className={cn([
             `p-4 pb-8 bg-primary animate-menu hidden 
-            flex-col gap-y-8 absolute w-full shadow-2xl`
+            flex-col gap-y-8 w-full shadow-2xl z-50`
         ])}>
                 {navItems.map((navItem, i) => (
                     <li key={i} 
