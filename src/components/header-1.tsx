@@ -63,7 +63,7 @@ export default function Header1() {
     return (
         <>
         <div className="bg-primary absolute top-0 left-0 w-full 
-        flex items-center justify-between p-4 md:p-8 h-[100px]">
+        flex items-center justify-end p-4 md:p-8 h-[100px]">
             <button
             ref={menuIconCloseRef} 
             onClick={handleMenuCloseButtonClick}
