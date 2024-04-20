@@ -60,15 +60,9 @@ p, a, li {
     padding: 0;
   }
 
-  30% {
-    opacity: 0.5;
-    max-height: 736px;
-    padding: 0.5rem;
-  }
-
   70% {
     opacity: 1;
-    max-height: 736px;
+    max-height: 300px;
     padding: 1rem;
   }
 
