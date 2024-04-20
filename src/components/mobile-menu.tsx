@@ -21,13 +21,23 @@ export default function MobileMenu({show, setShow}: MobileMenuProps) {
         
         if (firstRender.current) {
             menu?.classList.add("hidden")
-            firstRender.current = false;
+            firstRender.current = false
         }
         
         if (show) {
             menu?.classList.remove("hidden")
+            menu?.classList.remove("animate-menu-close")
+            if (!menu?.classList.contains("animate-menu")) {
+                menu?.classList.add("animate-menu")
+            }
         } else {
+            menu?.classList.remove("animate-menu")
             menu?.classList.add("animate-menu-close")
+
+            const tmp = menu?.cloneNode()
+            menu?.remove()
+            tmp?.parentNode?.appendChild(tmp)
+
             setTimeout(()=>{
                 menu?.classList.add("hidden")
             }, 500)
