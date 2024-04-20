@@ -1,5 +1,5 @@
 import ButtonLink from "@/components/button-link";
-import Header from "@/components/header";
+import Header1 from "@/components/header-1";
 import SkillDisplay from "@/components/skill-display";
 import { electrolize, fira_sans } from "@/utils/fonts/fonts";
 import { CONTACT_URL, PROJECTS_URL } from "@/utils/links";
@@ -11,7 +11,7 @@ import me from "/public/images/me.png"
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Header />
+      <Header1 />
       <div className="bg-primary w-full min-h-64 py-8 pt-36 px-4 md:px-16">
         <div>
           <h1 className="uppercase text-4xl text-white">Arnold Umakhihe</h1>

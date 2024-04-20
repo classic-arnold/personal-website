@@ -43,7 +43,7 @@ export default function MobileMenu({show, setShow}: MobileMenuProps) {
                 }, 1000)
             }
         }
-    }, [show, hiddenRef])
+    }, [show, hiddenRef, firstRender])
 
     return (
         <ul ref={menuRef} className={cn([

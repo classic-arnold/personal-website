@@ -14,15 +14,26 @@ import close from "/public/icons/close.svg"
 
 
 export default function Header2() {
-
     const [showMenu, setShowMenu] = useState(false)
 
     const firstRender = useRef(true);
-    const menuIconRef = useRef<HTMLImageElement>(null)
-    const menuIconCloseRef = useRef<HTMLImageElement>(null)
+    const menuIconRef = useRef<HTMLButtonElement>(null)
+    const menuIconCloseRef = useRef<HTMLButtonElement>(null)
 
-    function handleMenuButtonClick () {
-        setShowMenu(!showMenu)
+    function handleMenuButtonClick (e: React.MouseEvent) {
+        // console.log("hi")
+        // if ((e.target as HTMLButtonElement)?.disabled === false){
+        //     (e.target as HTMLButtonElement).disabled = true
+        // }
+        setShowMenu(true)
+    }
+
+    function handleMenuCloseButtonClick (e: React.MouseEvent) {
+        // console.log("hi")
+        // if ((e.target as HTMLButtonElement)?.disabled === false){
+        //     (e.target as HTMLButtonElement).disabled = true
+        // }
+        setShowMenu(false)
     }
 
     useEffect(()=>{
@@ -33,24 +44,29 @@ export default function Header2() {
                 menuIconRef.current?.classList.add("hidden")
                 menuIconRef.current?.classList.remove("animate-menu-icon")
                 menuIconCloseRef.current?.classList.add("animate-menu-close-icon")
-                menuIconCloseRef.current?.parentElement?.setAttribute("disabled", "true")
                 menuIconCloseRef.current?.classList.remove("hidden")
-                setTimeout(()=>{
-                    menuIconRef.current?.parentElement?.removeAttribute("disabled")
-                }, 1000)
+                // setTimeout(()=>{
+                //     if ((document.getElementById("menu-icon-button") as HTMLButtonElement).disabled) {
+                //         (document.getElementById("menu-icon-button") as HTMLButtonElement).disabled = false
+                //     }
+                // }, 1000)
             } else {
                 menuIconCloseRef.current?.classList.add("hidden")
                 menuIconCloseRef.current?.setAttribute("disabled", "true")
                 menuIconCloseRef.current?.classList.remove("animate-menu-close-icon")
                 menuIconRef.current?.classList.add("animate-menu-icon")
-                menuIconRef.current?.parentElement?.setAttribute("disabled", "true")
+                // if ((document.getElementById("menu-icon-button") as HTMLButtonElement).disabled) {
+                //     (document.getElementById("menu-icon-button") as HTMLButtonElement).disabled = true
+                // }
                 menuIconRef.current?.classList.remove("hidden")
-                setTimeout(()=>{
-                    menuIconCloseRef.current?.parentElement?.removeAttribute("disabled")
-                }, 1000)
+                // setTimeout(()=>{
+                //     if ((document.getElementById("menu-icon-button") as HTMLButtonElement).disabled) {
+                //         (document.getElementById("menu-icon-button") as HTMLButtonElement).disabled = false
+                //     }
+                // }, 1000)
             }
         }
-    }, [showMenu])
+    }, [showMenu, firstRender])
 
     return (
         <>
@@ -62,18 +78,24 @@ export default function Header2() {
                     "text-sm md:text-xl font-extralight italic text-white"])}>Software Engineer</h6>
             </Link>
             <button
+            ref={menuIconCloseRef} 
             onClick={handleMenuButtonClick}
+            id="menu-icon-close-button"
+            className="hidden"
             >
                 <Image
-                ref={menuIconCloseRef} 
                 src={close} 
                 alt={"menu close icon"}  
                 height={30}
-                width={30}
-                className="hidden"       
+                width={30}     
                 />
+            </button>
+            <button
+            ref={menuIconRef} 
+            onClick={handleMenuCloseButtonClick}
+            id="menu-icon-close-button"
+            >
                 <Image
-                ref={menuIconRef} 
                 src={menu} 
                 alt={"menu icon"}  
                 height={30}
