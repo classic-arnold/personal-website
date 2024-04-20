@@ -22,11 +22,11 @@ export default function MobileMenu({show, setShow}: MobileMenuProps) {
         const menu = menuRef.current
         
         if (firstRender.current) {
-            menu?.classList.add("hidden")
             firstRender.current = false
         } else {
             if (show) {
                 if (hidden) {
+                    menu?.classList.add("flex")
                     menu?.classList.remove("hidden")
                     menu?.classList.remove("animate-menu-close")
                     menu?.classList.add("animate-menu")
@@ -38,8 +38,9 @@ export default function MobileMenu({show, setShow}: MobileMenuProps) {
                     menu?.classList.add("animate-menu-close")
                     setTimeout(()=>{
                         menu?.classList.add("hidden")
+                        menu?.classList.remove("flex")
                         setHidden(true)
-                    }, 1000)
+                    }, 950)
                 }
             }
         }
@@ -47,7 +48,8 @@ export default function MobileMenu({show, setShow}: MobileMenuProps) {
 
     return (
         <ul ref={menuRef} className={cn([
-            `p-4 pb-8 bg-primary animate-menu flex flex-col gap-y-8 absolute w-full shadow shadow-slate-700 `
+            `p-4 pb-8 bg-primary animate-menu hidden 
+            flex-col gap-y-8 absolute w-full shadow shadow-slate-700`
         ])}>
                 {navItems.map((navItem, i) => (
                     <li key={i} 
