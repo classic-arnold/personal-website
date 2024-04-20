@@ -11,9 +11,28 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({show, setShow}: MobileMenuProps) {
+
+    const firstRender = useRef(true);
+
+    const menuRef = useRef<HTMLUListElement>(null)
+
+    useEffect(()=>{
+        const menu = menuRef.current
+        if (firstRender.current) {
+            menu?.classList.add("hidden")
+            firstRender.current = false;
+        }
+        if (show) {
+            menu?.classList.remove("hidden")
+        } else {
+            setTimeout(()=>{
+                menu?.classList.add("hidden")
+            }, 1000)
+        }
+    }, [show])
+
     return (
-        <ul className={cn([
-            show ? "" : "hidden",
+        <ul ref={menuRef} className={cn([
             `p-4 bg-primary animate-menu flex flex-col gap-y-8`
         ])}>
                 {navItems.map((navItem, i) => (
