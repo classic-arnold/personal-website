@@ -11,22 +11,10 @@ interface MobileMenuProps {
 }
 
 export default function MobileMenu({show, setShow}: MobileMenuProps) {
-
-    const menuRef = useRef<HTMLUListElement>(null)
-
-    useEffect(()=>{
-        if (show) {
-            setTimeout(()=>{
-                const menu = menuRef.current
-                menu?.classList.remove("h-0")
-            }, 1000)
-        }
-    }, [show])
-
     return (
-        <ul ref={menuRef} className={cn([
+        <ul className={cn([
             show ? "" : "hidden",
-            `h-0 p-4 bg-primary animate-menu flex flex-col gap-y-8`
+            `p-4 bg-primary animate-menu flex flex-col gap-y-8`
         ])}>
                 {navItems.map((navItem, i) => (
                     <li key={i} 

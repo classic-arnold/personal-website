@@ -40,7 +40,7 @@ p, a, li {
 }
 
 .animate-menu {
-  animation: slide_menu 0.2s ease-in-out;
+  animation: slide_menu 1s ease-in-out;
 }
 
 @keyframes scale {
@@ -54,14 +54,28 @@ p, a, li {
 }
 
 @keyframes slide_menu {
-  from {
+  0% {
     opacity: 0;
     max-height: 0;
+    padding: 0;
   }
 
-  to {
+  30% {
+    opacity: 0.5;
+    max-height: 736px;
+    padding: 0.5rem;
+  }
+
+  70% {
     opacity: 1;
-    max-height: 1000px;
+    max-height: 736px;
+    padding: 1rem;
+  }
+
+  100% {
+    opacity: 1;
+    max-height: 736px;
+    padding: 1rem;
   }
 }
 
