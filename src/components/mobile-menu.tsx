@@ -27,20 +27,20 @@ export default function MobileMenu({show, setShow}: MobileMenuProps) {
         } else {
             if (show) {
                 if (hidden) {
-                    // ignore if not hidden
                     menu?.classList.remove("hidden")
                     menu?.classList.remove("animate-menu-close")
                     menu?.classList.add("animate-menu")
                     setHidden(false)
                 }
             } else {
-                menu?.classList.remove("animate-menu")
-
-                menu?.classList.add("animate-menu-close")
-                setTimeout(()=>{
-                    menu?.classList.add("hidden")
-                    setHidden(true)
-                }, 1000)
+                if (!hidden) {
+                    menu?.classList.remove("animate-menu")
+                    menu?.classList.add("animate-menu-close")
+                    setTimeout(()=>{
+                        menu?.classList.add("hidden")
+                        setHidden(true)
+                    }, 1000)
+                }
             }
         }
     }, [show, hidden, firstRender])

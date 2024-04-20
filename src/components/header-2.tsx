@@ -21,17 +21,16 @@ export default function Header2() {
     const menuIconRef = useRef<HTMLButtonElement>(null)
     const menuIconCloseRef = useRef<HTMLButtonElement>(null)
 
+    const [menuIconDisabled, setMenuIconDisabled] = useState<boolean>()
+    const [menuIconCloseDisabled, setMenuIconCloseDisabled] = useState<boolean>()
+
     function handleMenuButtonClick (e: React.MouseEvent) {
-        // if (!(e.target as HTMLButtonElement)?.disabled){
-        //     (e.target as HTMLButtonElement).disabled = true
-        // }
+        setMenuIconCloseDisabled(true)
         setShowMenu(true)
     }
 
     function handleMenuCloseButtonClick (e: React.MouseEvent) {
-        // if (!(e.target as HTMLButtonElement)?.disabled){
-        //     (e.target as HTMLButtonElement).disabled = true
-        // }
+        setMenuIconDisabled(true)
         setShowMenu(false)
     }
 
@@ -43,26 +42,20 @@ export default function Header2() {
                 menuIconRef.current?.classList.add("hidden")
                 menuIconRef.current?.classList.remove("animate-menu-icon")
                 menuIconCloseRef.current?.classList.add("animate-menu-close-icon")
+                setMenuIconCloseDisabled(true)
                 menuIconCloseRef.current?.classList.remove("hidden")
-                // setTimeout(()=>{
-                //     if ((document.getElementById("menu-icon-button") as HTMLButtonElement).disabled) {
-                //         (document.getElementById("menu-icon-button") as HTMLButtonElement).disabled = false
-                //     }
-                // }, 1000)
+                setTimeout(()=>{
+                    setMenuIconCloseDisabled(false)
+                }, 1000)
             } else {
                 menuIconCloseRef.current?.classList.add("hidden")
-                // menuIconCloseRef.current?.setAttribute("disabled", "true")
                 menuIconCloseRef.current?.classList.remove("animate-menu-close-icon")
                 menuIconRef.current?.classList.add("animate-menu-icon")
-                // if ((document.getElementById("menu-icon-button") as HTMLButtonElement).disabled) {
-                //     (document.getElementById("menu-icon-button") as HTMLButtonElement).disabled = true
-                // }
+                setMenuIconDisabled(true)
                 menuIconRef.current?.classList.remove("hidden")
-                // setTimeout(()=>{
-                //     if ((document.getElementById("menu-icon-button") as HTMLButtonElement).disabled) {
-                //         (document.getElementById("menu-icon-button") as HTMLButtonElement).disabled = false
-                //     }
-                // }, 1000)
+                setTimeout(()=>{
+                    setMenuIconDisabled(false)
+                }, 1000)
             }
         }
     }, [showMenu, firstRender])
@@ -79,7 +72,8 @@ export default function Header2() {
             <button
             ref={menuIconCloseRef} 
             onClick={handleMenuCloseButtonClick}
-            className="hidden"
+            disabled={menuIconCloseDisabled}
+            className="hidden disabled:opacity-50"
             >
                 <Image
                 src={close} 
@@ -91,6 +85,8 @@ export default function Header2() {
             <button
             ref={menuIconRef} 
             onClick={handleMenuButtonClick}
+            disabled={menuIconDisabled}
+            className="disabled:opacity-50"
             >
                 <Image
                 src={menu} 
