@@ -1,4 +1,4 @@
-import Header2 from "@/components/header2";
+import Header2 from "@/components/header-2";
 
 
 export default function Projects() {

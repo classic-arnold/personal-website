@@ -9,6 +9,7 @@ import Link from "next/link";
 import menu from "/public/icons/menu.svg"
 import { useEffect, useState } from "react";
 import MobileMenu from "./mobile-menu";
+import { HOME } from "@/utils/links";
 
 
 export default function Header2() {
@@ -23,11 +24,11 @@ export default function Header2() {
         <>
         <div className="bg-primary absolute top-0 left-0 w-full 
         flex items-center justify-between p-4 md:p-8 h-[100px]">
-            <div>
+            <Link href={HOME}>
                 <h4 className="uppercase text-lg md:text-4xl text-white">Arnold Umakhihe</h4>
                 <h6 className={cn([fira_sans.className, 
                     "text-sm md:text-xl font-extralight italic text-white"])}>Software Engineer</h6>
-            </div>
+            </Link>
             <button
             onClick={handleMenuButtonClick}
             >
