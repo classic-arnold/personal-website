@@ -17,20 +17,19 @@ export default function Header2() {
     const [showMenu, setShowMenu] = useState(false)
 
     const firstRender = useRef(true);
+    
     const menuIconRef = useRef<HTMLButtonElement>(null)
     const menuIconCloseRef = useRef<HTMLButtonElement>(null)
 
     function handleMenuButtonClick (e: React.MouseEvent) {
-        // console.log("hi")
-        // if ((e.target as HTMLButtonElement)?.disabled === false){
+        // if (!(e.target as HTMLButtonElement)?.disabled){
         //     (e.target as HTMLButtonElement).disabled = true
         // }
         setShowMenu(true)
     }
 
     function handleMenuCloseButtonClick (e: React.MouseEvent) {
-        // console.log("hi")
-        // if ((e.target as HTMLButtonElement)?.disabled === false){
+        // if (!(e.target as HTMLButtonElement)?.disabled){
         //     (e.target as HTMLButtonElement).disabled = true
         // }
         setShowMenu(false)
@@ -52,7 +51,7 @@ export default function Header2() {
                 // }, 1000)
             } else {
                 menuIconCloseRef.current?.classList.add("hidden")
-                menuIconCloseRef.current?.setAttribute("disabled", "true")
+                // menuIconCloseRef.current?.setAttribute("disabled", "true")
                 menuIconCloseRef.current?.classList.remove("animate-menu-close-icon")
                 menuIconRef.current?.classList.add("animate-menu-icon")
                 // if ((document.getElementById("menu-icon-button") as HTMLButtonElement).disabled) {
@@ -79,8 +78,7 @@ export default function Header2() {
             </Link>
             <button
             ref={menuIconCloseRef} 
-            onClick={handleMenuButtonClick}
-            id="menu-icon-close-button"
+            onClick={handleMenuCloseButtonClick}
             className="hidden"
             >
                 <Image
@@ -92,8 +90,7 @@ export default function Header2() {
             </button>
             <button
             ref={menuIconRef} 
-            onClick={handleMenuCloseButtonClick}
-            id="menu-icon-close-button"
+            onClick={handleMenuButtonClick}
             >
                 <Image
                 src={menu} 

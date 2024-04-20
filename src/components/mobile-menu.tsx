@@ -2,7 +2,7 @@ import { electrolize } from "@/utils/fonts/fonts";
 import { navItems } from "@/utils/nav-items";
 import { cn } from "@/utils/utils";
 import Link from "next/link";
-import { Dispatch, SetStateAction, useEffect, useRef } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 
 
 interface MobileMenuProps {
@@ -16,7 +16,7 @@ export default function MobileMenu({show, setShow}: MobileMenuProps) {
 
     const menuRef = useRef<HTMLUListElement>(null)
 
-    const hiddenRef = useRef<boolean>(true)
+    const [hidden, setHidden] = useState<boolean>(true)
 
     useEffect(()=>{
         const menu = menuRef.current
@@ -26,12 +26,12 @@ export default function MobileMenu({show, setShow}: MobileMenuProps) {
             firstRender.current = false
         } else {
             if (show) {
-                if (hiddenRef.current) {
-                    // ignore if hidden ref
+                if (hidden) {
+                    // ignore if not hidden
                     menu?.classList.remove("hidden")
                     menu?.classList.remove("animate-menu-close")
                     menu?.classList.add("animate-menu")
-                    hiddenRef.current = false
+                    setHidden(false)
                 }
             } else {
                 menu?.classList.remove("animate-menu")
@@ -39,11 +39,11 @@ export default function MobileMenu({show, setShow}: MobileMenuProps) {
                 menu?.classList.add("animate-menu-close")
                 setTimeout(()=>{
                     menu?.classList.add("hidden")
-                    hiddenRef.current = true
+                    setHidden(true)
                 }, 1000)
             }
         }
-    }, [show, hiddenRef, firstRender])
+    }, [show, hidden, firstRender])
 
     return (
         <ul ref={menuRef} className={cn([
