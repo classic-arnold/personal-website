@@ -76,7 +76,6 @@ jobs:
       - name: Build with Next.js
         run: |
             npm i sharp
-            mkdir out
             ${{ steps.detect-package-manager.outputs.runner }} build
 
       - name: Upload artifact
