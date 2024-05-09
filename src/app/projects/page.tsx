@@ -19,6 +19,7 @@ export default function Projects() {
                 flex-col gap-y-8 md:gap-y-0 max-w-screen-lg">
                     <div className="basis-1/2">
                         <Image 
+                        loader={imageLoader} 
                         src={majorgen_img}
                         alt="Majorgen"
                         width={650}

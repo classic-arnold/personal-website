@@ -84,6 +84,7 @@ export default function SkillDisplay() {
         <div ref={displayContainerRef} className="flex gap-x-4 overflow-hidden">
             {skillsImages.map((skillImage, i) => (
                 <Image 
+        loader={imageLoader} 
                 src={skillImage.image}
                 alt={skillImage.alt}
                 width={50}

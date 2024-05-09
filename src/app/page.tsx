@@ -40,6 +40,7 @@ export default function Home() {
       </div>
       <div className="absolute bottom-0 right-0 w-2/3 hidden md:block">
         <Image 
+        loader={imageLoader}
         src={me}
         alt="me!!!"
         width={1063}
@@ -48,6 +49,7 @@ export default function Home() {
       </div>
       <div className="block md:hidden">
         <Image 
+        loader={imageLoader} 
         src={me}
         alt="me!!!"
         width={1063}
