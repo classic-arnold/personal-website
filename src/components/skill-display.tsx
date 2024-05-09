@@ -10,6 +10,7 @@ import react from "/public/icons/skills/React.svg";
 import django from "/public/icons/skills/Django.svg";
 import flask from "/public/icons/skills/Flask.svg";
 import { useEffect, useRef, useState } from "react";
+import { imageLoader } from "@/utils/image-loader";
 
 export default function SkillDisplay() {
   const displayContainerRef = useRef<HTMLDivElement>(null);

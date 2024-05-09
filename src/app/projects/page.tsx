@@ -6,6 +6,7 @@ import Image from "next/image";
 import majorgen_img from "/public/images/projects/majorgen.png";
 import ButtonLink from "@/components/button-link";
 import { PROJECTS_URL } from "@/utils/links";
+import { imageLoader } from "@/utils/image-loader";
 
 export default function Projects() {
   return (

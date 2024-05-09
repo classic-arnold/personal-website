@@ -7,6 +7,7 @@ import { cn } from "@/utils/utils";
 import Image from "next/image";
 
 import me from "/public/images/me.png";
+import { imageLoader } from "@/utils/image-loader";
 
 export default function Home() {
   return (
