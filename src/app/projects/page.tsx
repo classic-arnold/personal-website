@@ -10,7 +10,7 @@ import { PROJECTS_URL } from "@/utils/links";
 
 export default function Projects() {
     return (
-        <main>
+        <main className="min-h-screen">
             <Header2 />
             <div className="px-4 md:px-16 py-16">
                 <h1 className={cn(["uppercase text-4xl mt-24 md:mt-36 mb-6", gillSans.className])}>My Projects</h1>
