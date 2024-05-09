@@ -6,6 +6,7 @@ import Image from "next/image";
 import majorgen_img from "/public/images/projects/majorgen.png";
 import ButtonLink from "@/components/button-link";
 import { PROJECTS_URL } from "@/utils/links";
+import { imageLoader } from "@/utils/image-loader";
 
 export default function Projects() {
   return (
@@ -27,7 +28,7 @@ export default function Projects() {
         >
           <div className="basis-1/2">
             <Image
-              loader={imageLoader}
+              // loader={imageLoader}
               src={majorgen_img}
               alt="Majorgen"
               width={650}

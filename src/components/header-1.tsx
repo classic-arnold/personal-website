@@ -11,6 +11,7 @@ import { HOME } from "@/utils/links";
 
 import menu from "/public/icons/menu.svg";
 import close from "/public/icons/close.svg";
+import { imageLoader } from "@/utils/image-loader";
 
 export default function Header1() {
   const [showMenu, setShowMenu] = useState(false);
@@ -85,7 +86,7 @@ export default function Header1() {
               className="hidden disabled:opacity-50"
             >
               <Image
-                loader={imageLoader}
+                // loader={imageLoader}
                 src={close}
                 alt={"menu close icon"}
                 height={30}
@@ -99,7 +100,7 @@ export default function Header1() {
               className="disabled:opacity-50"
             >
               <Image
-                loader={imageLoader}
+                // loader={imageLoader}
                 src={menu}
                 alt={"menu icon"}
                 height={30}

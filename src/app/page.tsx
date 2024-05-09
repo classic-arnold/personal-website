@@ -7,6 +7,7 @@ import { cn } from "@/utils/utils";
 import Image from "next/image";
 
 import me from "/public/images/me.png";
+import { imageLoader } from "@/utils/image-loader";
 
 export default function Home() {
   return (
@@ -49,7 +50,7 @@ export default function Home() {
       </div>
       <div className="absolute bottom-0 right-0 w-2/3 hidden md:block">
         <Image
-          loader={imageLoader}
+          // loader={imageLoader}
           src={me}
           alt="me!!!"
           width={1063}
@@ -58,7 +59,7 @@ export default function Home() {
       </div>
       <div className="block md:hidden">
         <Image
-          loader={imageLoader}
+          // loader={imageLoader}
           src={me}
           alt="me!!!"
           width={1063}
