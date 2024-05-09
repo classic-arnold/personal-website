@@ -77,7 +77,7 @@ jobs:
         run: |
             npm i sharp
             mkdir out
-            ${{ steps.detect-package-manager.outputs.runner }} next build
+            ${{ steps.detect-package-manager.outputs.runner }} build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
