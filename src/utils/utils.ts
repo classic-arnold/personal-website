@@ -1,5 +1,3 @@
-
-
 export function cn(classesList: string[]) {
-    return classesList.join(" ")
+  return classesList.join(" ");
 }
