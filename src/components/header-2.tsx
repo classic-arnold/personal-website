@@ -93,7 +93,7 @@ export default function Header2() {
                         className="hidden disabled:opacity-50"
                         >
                             <Image 
-        loader={imageLoader}
+                            loader={imageLoader}
                             src={close} 
                             alt={"menu close icon"}  
                             height={30}
@@ -107,7 +107,7 @@ export default function Header2() {
                         className="disabled:opacity-50"
                         >
                             <Image 
-        loader={imageLoader}
+                            loader={imageLoader}
                             src={menu} 
                             alt={"menu icon"}  
                             height={30}
