@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     basePath: "/personal-website",
-    output: "out",
+    output: "export",
     reactStrictMode: false,
 };
 
