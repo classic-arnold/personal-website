@@ -7,7 +7,6 @@ import { cn } from "@/utils/utils";
 import Image from "next/image";
 
 import me from "/public/images/me.png";
-import { imageLoader } from "@/utils/image-loader";
 
 export default function Home() {
   return (
@@ -49,22 +48,10 @@ export default function Home() {
         </div>
       </div>
       <div className="absolute bottom-0 right-0 w-2/3 hidden md:block">
-        <Image
-          loader={imageLoader}
-          src={me}
-          alt="me!!!"
-          width={1063}
-          height={928}
-        />
+        <Image src={me} alt="me!!!" width={1063} height={928} />
       </div>
       <div className="block md:hidden">
-        <Image
-          loader={imageLoader}
-          src={me}
-          alt="me!!!"
-          width={1063}
-          height={928}
-        />
+        <Image src={me} alt="me!!!" width={1063} height={928} />
       </div>
       <div className="bg-primary text-white md:bg-inherit md:text-black md:absolute bottom-0 py-4 px-4 md:px-16">
         <p className="text-xs">Designed and built by me with ❤️️</p>
