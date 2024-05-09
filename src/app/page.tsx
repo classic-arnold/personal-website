@@ -28,8 +28,9 @@ export default function Home() {
       </div>
       <div className="px-4 md:px-16 pt-16 max-w-md">
         <p className="mb-6">
-          Hey there! I’m Arnold, dialing in from San Francisco with a love for
-          code, AI, and making cool stuff happen with software and technology.
+          Hey there! I&#39;m Arnold, dialing in from San Francisco with a love
+          for code, AI, and making cool stuff happen with software and
+          technology.
         </p>
         <div className="flex flex-col gap-y-4">
           <ButtonLink
