@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "./styles/dist/globals-output.css";
 import { gillSans } from "@/utils/fonts/fonts";
 
 export const metadata: Metadata = {

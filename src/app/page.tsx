@@ -54,8 +54,8 @@ export default function Home() {
       <div className="block md:hidden">
         <Image src={me} alt="me!!!" width={1063} height={928} />
       </div>
-      <div className="bg-primary text-white md:bg-inherit md:text-black md:absolute bottom-0 py-4 px-4 md:px-16">
-        <p className="text-xs">Designed and built by me with ❤️️</p>
+      <div className="bg-primary md:bg-inherit md:text-black md:absolute bottom-0 py-4 px-4 md:px-16">
+        <p className="text-xs text-white">Designed and built by me with ❤️️</p>
       </div>
     </main>
   );
