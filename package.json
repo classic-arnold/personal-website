@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/app/styles/globals.css -o ./src/app/styles/dist/globals-output.css --watch & next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "prepare": "husky"
+    "prepare": "husky",
+    "tailwind": "npx tailwindcss -i ./src/app/styles/globals.css -o ./src/app/styles/dist/globals-output.css --watch"
   },
   "dependencies": {
     "next": "14.2.1",
