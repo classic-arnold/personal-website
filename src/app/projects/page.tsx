@@ -21,7 +21,7 @@ export default function Projects() {
           My Projects
         </h1>
         <div
-          className="rounded-md bg-white p-4 
+          className="rounded-md bg-white dark:bg-primary p-4 
                 md:p-16 flex md:flex-row md:gap-x-8
                 flex-col gap-y-8 md:gap-y-0 max-w-screen-lg"
         >
